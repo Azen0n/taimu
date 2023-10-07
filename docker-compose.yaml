@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: taimu-web
+    build:
+      context: .
+    command: uvicorn src.main:app --host 0.0.0.0 --port ${WEB_CONTAINER_PORT}
+    volumes:
+      - ./src:/opt/taimu/src
+    ports:
+      - "${WEB_HOST_PORT}:${WEB_CONTAINER_PORT}"
