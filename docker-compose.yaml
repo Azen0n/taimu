@@ -11,3 +11,18 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+  db:
+    container_name: taimu-db
+    image: postgres:16
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}"
+    expose:
+      - "${POSTGRES_CONTAINER_PORT}"
+
+volumes:
+  postgres_data:
