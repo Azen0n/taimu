@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   web:
     container_name: taimu-web
@@ -10,3 +8,6 @@ services:
       - ./src:/opt/taimu/src
     ports:
       - "${WEB_HOST_PORT}:${WEB_CONTAINER_PORT}"
+    restart: unless-stopped
+    env_file:
+      - .env
