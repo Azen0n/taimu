@@ -5,4 +5,4 @@ class Base(DeclarativeBase):
     """Base model class."""
 
     __abstract__ = True
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, sort_order=-1)

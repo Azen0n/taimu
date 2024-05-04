@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     POSTGRES_CONTAINER_PORT: int
     POSTGRES_DB: str
 
+    DEBUG: bool = True
+
     @property
     def database_url(self) -> str:
         """Return PostgreSQL connection string."""
